@@ -1,19 +1,26 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
             "label": "build",
             "type": "shell",
+            "options": {
+                "shell": {
+                    "executable": "C:\\Windows\\System32\\wsl.exe",
+                }
+            },
             "command": "g++",
             "args": [
                 "-std=gnu++1y",
                 "-g",
-                "-O2",
-                "${fileBasename}",
+                "-O0",
+                "-I/opt/boost/gcc/include",
+                "-L/opt/boost/gcc/lib",
                 "-o",
-                "${fileBasenameNoExtension}.out"
+                "`wslpath",
+                "'${workspaceFolder}\\problem.exe'`",
+                "`wslpath",
+                "'${file}'`",
             ],
             "group": {
                 "kind": "build",
