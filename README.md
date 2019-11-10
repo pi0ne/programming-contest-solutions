@@ -45,4 +45,4 @@ sudo apt install gdb
 プロジェクト配下に適当に `cpp` ファイルを作ればよい
 
 - ビルド: `ctrl` + `shift` + `B`
-- デバッグ: `problem.in` に入力値を設定して `F5`
+- デバッグ: 直下に `problem.in` ファイルを作成、入力値を設定して `F5`
