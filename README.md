@@ -1,6 +1,8 @@
-# Programming contest solutions by pione
+# Programming contest solutions in C++ by pione
 
 プログラミングコンテストの **C++** による解答のリポジトリ
+
+C++ のバージョンは基本的に AtCoder のバージョンに即している
 
 ## おまけ C++競プロ環境
 
