@@ -22,9 +22,9 @@ vector<pii> calc(int x, int y, int k){
     return res;
   }
   
-  int n=(x+y+k-1)/k;
+  int n=(x+y+k-1)/k;      // 分子に分母-1(k-1)を加算することで、x+y/kの天井関数としている. ceil((x+y)/k)と同じ
   if(n<=1)n=2;
-  if((x+y)%2!=n*k%2)n++;
+  if((x+y)%2!=n*k%2)n++;  // kと(x+y)のパリティが合わない場合(k:奇数、x+y:偶数)は、その調整のため1回多く移動が必要
   
   if(n==3&&x<k){
     // 特殊パターン
