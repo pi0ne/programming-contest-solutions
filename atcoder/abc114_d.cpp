@@ -14,9 +14,12 @@ template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; }
 int GCD(int a, int b) { return b ? GCD(b, a%b) : a; }
 int LCM(int a, int b) { return a * b / GCD(a, b); }
 
+// 参考: https://atcoder.jp/contests/abc114/submissions/8437455
+
 int N;
 int cnt[101];
-ll dp[101]; // dp[i] := 約数の個数がi個になるような素因数の組合わせ方の数
+ll dp[101];   // dp[x]    := (i番目までの素因数から)約数の個数がx個になるような方法は何通りあるか
+              // dp[i][x] := i番目までの素因数から約数の個数がx個になるような方法は何通りあるか
 
 void prime_factorize(){
   for(int i=2;i<=N;i++){
