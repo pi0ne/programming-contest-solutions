@@ -62,31 +62,27 @@ signed main()
   ll ans=0;
   rrep(x,n){
     int i = idx[x];
-    ll c=0;
     s.insert(i);
-    vi l(2,-1);
-    vi r(2,n);
-    auto it=s.find(i);
-    rep(j,2){
-      if(it==s.begin())break;
-      --it;
-      l[j]=*it;
-    }
-    it=s.find(i);
-    rep(j,2){
-      ++it;
-      if(it==s.end())break;
-      r[j]=*it;
-    }
-    vi ls(2);
-    ls[0]=i-l[0];
-    ls[1]=l[0]-l[1];
-    vi rs(2);
-    rs[0]=r[0]-i;
-    rs[1]=r[1]-r[0];
-    c=(ll)ls[0]*rs[1]+(ll)ls[1]*rs[0];
     
-    ans+=c*(x+1);
+    vi l(2,-1), r(2,n);
+    
+    auto it = s.find(i);
+    rep(j,2){
+      if(it == s.begin()) break;
+      it--;
+      l[j] = *it;
+    }
+    it = s.find(i);
+    rep(j,2){
+      it++;
+      if(it == s.end()) break;
+      r[j] = *it;
+    }
+    vi ls(2), rs(2);
+    ls[0]=i-l[0]; ls[1]=l[0]-l[1];
+    rs[0]=r[0]-i; rs[1]=r[1]-r[0];
+    
+    ans+=((ll)ls[0]*rs[1]+ls[1]*rs[0])*(x+1);
   }
   cout<<ans<<endl;
 }
