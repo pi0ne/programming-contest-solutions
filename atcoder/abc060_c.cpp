@@ -47,15 +47,27 @@ const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
 
+int matrix[50][26];
+
 signed main()
 {
   cin.tie( 0 ); ios::sync_with_stdio( false );
-  ll n, T; cin>>n>>T;
-  vector<ll> t(n);
-  rep(i,n) cin>>t[i];
-  ll ans=T*n;
-  irep(i,1,n){
-    ans-=max(0LL,T-(t[i]-t[i-1]));
+  int n; cin>>n;
+  vector<string> s;
+  rep(i,n){
+    string s; cin>>s;
+    rep(j,s.size()){
+      matrix[i][s[j]-'a']++;
+    }
   }
-  cout<<ans<<endl;
+  rep(i,26){
+    int tmp=50;
+    rep(j,n){
+      chmin(tmp,matrix[j][i]);
+    }
+    rep(j,tmp){
+      cout<<char('a'+i);
+    }
+  }
+  cout<<endl;
 }
