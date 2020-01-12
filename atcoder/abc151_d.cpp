@@ -52,7 +52,7 @@ vector<string> g(25);
  
 int bfs(int y, int x){
   int cost[25][25];
-  rep(i,h) rep(j,w) cost[i][j]=-1;
+  rep(i,h) rep(j,w) cost[i][j]=INF;
   cost[y][x]=0;
   queue<pii> q;
   q.push(pii(y,x));
@@ -63,7 +63,9 @@ int bfs(int y, int x){
     rep(i,4){
       int ny=now.first+dy[i];
       int nx=now.second+dx[i];
-      if(inside(ny,nx,h,w) && g[ny][nx]=='.' && cost[ny][nx]==-1){
+      if(inside(ny,nx,h,w) && g[ny][nx]=='.'
+          && cost[ny][nx] >= cost[now.first][now.second]
+          && cost[ny][nx] > cost[now.first][now.second]+1){
         q.push(pii(ny,nx));
         cost[ny][nx]=cost[now.first][now.second]+1;
         chmax(res,cost[ny][nx]);
