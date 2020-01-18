@@ -53,7 +53,7 @@ signed main()
   int k; cin>>k;
   vi f(45);
   f[1]=f[2]=1;
-  for(int i=3; i<=41; i++){
+  for(int i=3; i<=42; i++){
     f[i]=f[i-2]+f[i-1];
   }
   cout<<f[k+2]<<" "<<f[k+1]<<endl;
