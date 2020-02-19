@@ -47,18 +47,19 @@ const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
 
-int dp[101000];
-
 signed main()
 {
   cin.tie( 0 ); ios::sync_with_stdio( false );
   int n; cin>>n;
-  vi a(n);
-  rep(i,n) cin>>a[i];
+  vi h(n);
+  rep(i,n) cin>>h[i];
+  
+  int dp[n];
+  fill(dp, dp+n, INF);
   dp[0]=0;
-  dp[1]=abs(a[0]-a[1]);
-  irep(i,2,n){
-    dp[i]=min(dp[i-2]+abs(a[i-2]-a[i]), dp[i-1]+abs(a[i-1]-a[i]));
+  for(int i=1; i<n; i++){
+    if(i>1) dp[i]=min(dp[i-1]+abs(h[i]-h[i-1]), dp[i-2]+abs(h[i]-h[i-2]));
+    else dp[i]=dp[i-1]+abs(h[i]-h[i-1]);
   }
   cout<<dp[n-1]<<endl;
 }
