@@ -6,7 +6,7 @@
             "type": "shell",
             "options": {
                 "shell": {
-                    "executable": "C:\\Windows\\System32\\wsl.exe",
+                    "executable": "C:\\Windows\\System32\\wsl.exe"
                 }
             },
             "command": "g++",
@@ -15,17 +15,19 @@
                 "-g",
                 "-O0",
                 "-I/opt/boost/gcc/include",
+                "-I/mnt/c/include/ac-library/",
                 "-L/opt/boost/gcc/lib",
                 "-o",
                 "`wslpath",
                 "'${workspaceFolder}\\problem.exe'`",
                 "`wslpath",
-                "'${file}'`",
+                "'${file}'`"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": []
         }
     ]
 }

@@ -6,7 +6,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:extension.vscode-wsl-workspaceFolder}/problem.exe",
-            "args": ["<", "${command:extension.vscode-wsl-workspaceFolder}/problem.in"],
+            "args": [
+                "<", "${command:extension.vscode-wsl-workspaceFolder}/problem.in",
+                ">", "${command:extension.vscode-wsl-workspaceFolder}/problem_out"
+            ],
             "stopAtEntry": false,
             "cwd": "${command:extension.vscode-wsl-workspaceFolder}",
             "environment": [],
